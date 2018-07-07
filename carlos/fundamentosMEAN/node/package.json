@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "node app",
+  "main": "ex01.js",
+  "dependencies": {
+    "eslint": "*",
+    "lodash": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node"
+  },
+  "author": "António Sousa",
+  "license": "ISC"
+}
