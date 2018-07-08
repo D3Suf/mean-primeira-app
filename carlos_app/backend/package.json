@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "api node js",
+  "main": "loader.js",
+  "dependencies": {
+    "express": "*",
+    "eslint": "*",
+    "lodash": "*",
+    "body-parser": "*",
+    "moongoose": "*",
+    "node-restful": "*",
+    "mongoose-paginate": "*",
+    "express-query-int": "*",
+    "pm2": "*"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start loader.js --name node-api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D3Suf/mean-primeira-app.git"
+  },
+  "author": "António Carlos Sousa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D3Suf/mean-primeira-app/issues"
+  },
+  "homepage": "https://github.com/D3Suf/mean-primeira-app#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
