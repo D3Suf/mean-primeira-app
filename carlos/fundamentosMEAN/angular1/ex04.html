@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<!-- all my app is controller by angular-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular exercises</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript"> 
+        angular.module('app', [
+            // dependencies 
+        ]);
+
+        /**
+        *   filter
+        */
+        angular.module('app').filter('upper', () => { return (input) => { return input.toUpperCase() } });
+
+        /**
+               * factory 
+               */
+        angular.module('app').factory('utils', [
+            /** injeções e depois função */
+            function () {
+                function upper(input) {
+                    return input.toUpperCase();
+                }
+                return { upper };
+            }
+        ]);
+        // OR
+
+        angular.module('app').factory('utilsTwo',
+            function () {
+                function upper(input) {
+                    return input.toUpperCase();
+                }
+                return { upper };
+            }
+        );
+
+
+        /**
+         * controller 
+         */
+        angular.module('app').controller('myController', [
+            /** array ou function */
+            /** injenções de dependencias*/
+            /** scope é intermediario entre o controller e a view */
+            'utils',
+            'utilsTwo',
+            function (utils, utilsTwo) {
+                const self = this;
+                self.value = "texto";
+                self.valueTwo = "textoTwo";
+                self.valueThree = utilsTwo.upper("textThree");
+            }
+        ]);
+
+
+    </script>
+</head>
+
+<body>
+
+    <!-- one time bind -->
+    {{::valueTwo}}
+    <input ng-model="valueTwo" />
+    <!-- um watcher é um listener -->
+    <!-- só faz uma vez um watch, posto isso depois ele remove o watcher-->
+
+    <div ng-controller="myController as controller">
+        <h1>
+            <!-- this is bind-->
+            {{controller.value | uppercase }}
+            <input ng-model="controller.value" />
+        </h1>
+
+
+        <h1>
+            <!-- filter custom -->
+            {{controller.valueTwo | upper}}
+        </h1>
+
+        <h1>
+            {{controller.valueThree}}
+        </h1>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<!-- all my app is controller by angular-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular exercises</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript"> 
+        angular.module('app', [
+            // dependencies 
+        ]);
+
+        /**
+         * component
+         */
+        angular.module('app').component('field', {
+            bindings: {
+                id: '@',
+                label: '@',
+                model: '=' // < //@
+            },
+            template: `
+                <label for="{{ $ctr.id }}">{{ $ctrl.label }}</label>
+                <input id="{{ $ctrl.id }}" ng-model='$ctrl.model'>
+            `
+        });
+
+        angular.module('app').controller('myController', function () {
+            const self = this;
+            self.name = "Carlos";
+        });
+    </script>
+</head>
+
+<body>
+    <div ng-controller="myController as ctrl">
+        <h1>{{ctrl.name}}</h1>
+        <field id="nome" label="Nome" model="ctrl.name"></field>
+    </div>
+</body>
+
+</html>

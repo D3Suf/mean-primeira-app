@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<!-- all my app is controller by angular-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular exercises</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript"> 
+        angular.module('app', [
+            // dependencies 
+        ]);
+    </script>
+</head>
+
+<body>
+    <!-- this is bind-->
+    {{value}}
+    <input ng-model="value" />
+
+    <!-- one time bind -->
+    {{::valueTwo}}
+    <input ng-model="valueTwo" />
+    <!-- um watcher é um listener -->
+    <!-- só faz uma vez um watch, posto isso depois ele remove o watcher-->
+</body>
+
+</html>

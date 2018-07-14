@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<!-- all my app is controller by angular-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular exercises</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript"> 
+        angular.module('app', [
+            // dependencies 
+        ]);
+
+        /**
+         * directive
+         */
+        angular.module('app').directive('myClock', function () {
+            return {
+                restrict: 'AE', // atribute or element example below
+                template: `<h2>${new Date}<h2>`
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Atributo</h1>
+    <div my-clock></div>
+    <h1>Elemento</h1>
+    <my-clock></my-clock>
+</body>
+
+</html>
