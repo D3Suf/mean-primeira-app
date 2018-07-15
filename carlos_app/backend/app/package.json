@@ -8,7 +8,7 @@
     "eslint": "*",
     "lodash": "*",
     "body-parser": "*",
-    "moongoose": "*",
+    "mongoose": "*",
     "node-restful": "*",
     "mongoose-paginate": "*",
     "express-query-int": "*",
