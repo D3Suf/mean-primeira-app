@@ -7,3 +7,7 @@ html {
     bottom: 0px;
     width: 100%;
 }
+
+.table-actions {
+    width: 140px;
+}
