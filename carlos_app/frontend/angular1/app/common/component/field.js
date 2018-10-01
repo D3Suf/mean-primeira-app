@@ -6,7 +6,8 @@
             grid: '@',
             placeholder: '@',
             type: '@',
-            model: '='
+            model: '=', // está alteração não tem alteração nos dois componentes, biderecional
+            readonly: '<' // está alteração não tem alteração no componente pai
         },
         controller: [
             function () {
@@ -20,7 +21,7 @@
                     <label for="{{ $ctrl.id }}">{{ $ctrl.label }}</label>
                     <input id="{{ $ctrl.id }}" class="form-control" 
                         placeholder="{{ $ctrl.placeholder }}" type="{{ $ctrl.type }}" 
-                        ng-model="$ctrl.model"/>
+                        ng-model="$ctrl.model" ng-readonly="$ctrl.readonly"/>
                 </div>
             </div>
         `

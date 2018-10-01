@@ -1,18 +1,19 @@
 <div role="form">
     <div class="box-body">
         <field id="name" grid="col-xs-12 col-sm-4" label="Nome" placeholder="Inserir o Nome"
-               model="bcController.billingCycle.name"></field>
+               model="bcController.billingCycle.name" readonly="bcController.tabDelete"></field>
         <field id="month" grid="col-xs-12 col-sm-4" label="Mês" placeholder="Inserir o Mês" type="number"
-               model="bcController.billingCycle.month"></field>
+               model="bcController.billingCycle.month" readonly="bcController.tabDelete"></field>
         <field id="year" grid="col-xs-12 col-sm-4" label="Ano" placeholder="Inserir o Ano" type="number"
-               model="bcController.billingCycle.year"></field>
+               model="bcController.billingCycle.year" readonly="bcController.tabDelete"></field>
     </div>
     <div class="box-footer">
         <button class="btn btn-primary" ng-click="bcController.create()"
                 ng-if="bcController.tabCreate">Criar
         </button>
-        <button class="btn btn-info" ng-if="bcController.tabUpdate">Alterar</button>
-        <button class="btn btn-danger" ng-if="bcController.tabDelete">Remover</button>
+        <button class="btn btn-info" ng-if="bcController.tabUpdate" ng-click="bcController.update()">Alterar
+        </button>
+        <button class="btn btn-danger" ng-if="bcController.tabDelete" ng-click="bcController.delete()">Remover</button>
         <button class="btn btn-default" ng-click="bcController.refresh()">Cancelar</button>
     </div>
 </div>
