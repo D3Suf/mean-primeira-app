@@ -1,18 +1,34 @@
 <div class="col-md-12">
     <table class="table">
         <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Acções</th>
-            </tr>
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Acções</th>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="credit in bcController.billingCycle.credits">
-                <td>
-                    <input ng-model="credit.name">
-                </td>
-            </tr>
+        <tr ng-repeat="credit in bcController.billingCycle.credits">
+            <td>
+                <input ng-model="credit.name" class="form-control" placeholder="Informe o Nome"
+                       ng-readonly="bcController.tabDelete"/>
+            </td>
+            <td>
+                <input ng-model="credit.value" class="form-control" placeholder="Informe o Valor"
+                       ng-readonly="bcController.tabDelete" type="number"/>
+            </td>
+            <td class="table-actions">
+                <button class="btn btn-success" ng-class="{disabled: bcController.tabDelete}">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button class="btn btn-warning" ng-class="{disabled: bcController.tabDelete}">
+                    <i class="fa fa-clone"></i>
+                </button>
+                <button class="btn btn-danger" ng-class="{disabled: bcController.tabDelete}">
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

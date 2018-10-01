@@ -6,6 +6,14 @@
                model="bcController.billingCycle.month" readonly="bcController.tabDelete"></field>
         <field id="year" grid="col-xs-12 col-sm-4" label="Ano" placeholder="Inserir o Ano" type="number"
                model="bcController.billingCycle.year" readonly="bcController.tabDelete"></field>
+
+        <div class="col-xs-12 col-sm-6">
+            <fieldset>
+                <legend>Créditos</legend>
+                <div ng-include="'billingCycle/creditList.html'"></div>
+            </fieldset>
+        </div>
+
     </div>
     <div class="box-footer">
         <button class="btn btn-primary" ng-click="bcController.create()"
