@@ -30,6 +30,6 @@
 
         vm.getSummary();
     }
-})()
+})();
 
 // -> estes ultimos dois parenteses chamam a função
