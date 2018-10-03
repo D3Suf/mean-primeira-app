@@ -1,12 +1,13 @@
 (function () {
     angular.module('primeiraApp').controller('BillingCycleCtrl', [
         '$http',
+        '$location',
         'msgs',
         'tabs',
         BillingCycleController
     ]);
 
-    function BillingCycleController($http, msgs, tabs) {
+    function BillingCycleController($http, $location, msgs, tabs) {
         const vm = this;
         const url = 'http://localhost:3003/api/billingCycles';
 
@@ -16,6 +17,10 @@
                 vm.billingCycles = response.data;
                 tabs.show(vm, {tabList: true, tabCreate: true});
                 vm.calculateValues();
+                /** acho que não é necessario fazer um novo request */
+                console.log(vm.billingCycles.length);
+                vm.pages = Math.ceil(vm.billingCycles / 10);
+                console.log(vm.pages);
             });
         };
 
