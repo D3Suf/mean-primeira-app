@@ -7,7 +7,7 @@
                 url: '',
                 templateUrl: "dashboard/dashboard.html"
             }).state('billingCycle', {
-                url: 'billingCycles?page',
+                url: '/billingCycles?page',
                 templateUrl: "billingCycle/tabs.html"
             });
 

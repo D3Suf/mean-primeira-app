@@ -2,6 +2,7 @@ const PORT = 3003;
 const bodyParser = require("body-parser");
 const express = require("express");
 const allowCors = require('./cors');
+const queryParser = require("express-query-int");
 const server = express();
 
 /** Express is a Chain of responsability work with middlewares, middlware by middlware */
@@ -10,6 +11,7 @@ server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
 /** allow CORS - cross-origin resource sharing */
 server.use(allowCors);
+server.use(queryParser());
 
 /** adicionado para eliminar a resposta 304 - nothing change - [cache] */
 server.disable('etag');

@@ -12,15 +12,14 @@
         const url = 'http://localhost:3003/api/billingCycles';
 
         vm.refresh = function () {
-            $http.get(url).then(function (response) {
+            const pages = parseInt($location.search().page || 1);
+            $http.get(`${url}?skip=${(pages - 1) * 10}&limit=10`).then(function (response) {
                 vm.billingCycle = {credits: [{}], debts: [{}]};
                 vm.billingCycles = response.data;
                 tabs.show(vm, {tabList: true, tabCreate: true});
                 vm.calculateValues();
                 /** acho que não é necessario fazer um novo request */
-                console.log(vm.billingCycles.length);
                 vm.pages = Math.ceil(vm.billingCycles / 10);
-                console.log(vm.pages);
             });
         };
 
