@@ -16,10 +16,12 @@
             $http.get(`${url}?skip=${(pages - 1) * 10}&limit=10`).then(function (response) {
                 vm.billingCycle = {credits: [{}], debts: [{}]};
                 vm.billingCycles = response.data;
-                tabs.show(vm, {tabList: true, tabCreate: true});
                 vm.calculateValues();
-                /** acho que não é necessario fazer um novo request */
-                vm.pages = Math.ceil(vm.billingCycles / 10);
+
+                $http.get(`${url}/count`).then(function (response) {
+                    vm.pages = Math.ceil(response.data.value / 10);
+                    tabs.show(vm, {tabList: true, tabCreate: true});
+                });
             });
         };
 
