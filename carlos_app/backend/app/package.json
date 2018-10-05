@@ -12,7 +12,9 @@
     "node-restful": "*",
     "mongoose-paginate": "*",
     "express-query-int": "*",
-    "pm2": "*"
+    "pm2": "*",
+    "bcrypt": "*",
+    "jsonwebtoken": "*"
   },
   "scripts": {
     "dev": "nodemon",
