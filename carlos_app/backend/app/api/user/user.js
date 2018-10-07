@@ -7,4 +7,4 @@ const userSchema = new mongoose.Schema({
   password: { type: String, min: 6, max: 12, require: true }
 });
 
-module.exports = resftul.module("User", userSchema);
+module.exports = resftul.model("User", userSchema);
