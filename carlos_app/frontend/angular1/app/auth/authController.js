@@ -11,14 +11,14 @@
         vm.loginMode = true;
         vm.changeMode = () => vm.loginMode = !vm.loginMode;
         vm.login = () => {
-            auth.login(vm.user, err => console.log({err}));
+            auth.login(vm.user, err => err ? msgs.addError(err) : msgs.addSuccess("Sucesso!"));
         };
         vm.signup = () => {
-            auth.signup(vm.user, err => console.log({err}));
+            auth.signup(vm.user, err => err ? msgs.addError(err) : msgs.addSuccess("Sucesso!"));
         };
-        vm.getUser = () => ({name: 'Mock User', email: 'mock@antonio-carlos.com'});
+        vm.getUser = () => auth.getUser();
         vm.logout = () => {
-            console.log('Logout ...');
+            auth.logout(() => msgs.addSuccess("Sucesso"));
         }
     }
 })();

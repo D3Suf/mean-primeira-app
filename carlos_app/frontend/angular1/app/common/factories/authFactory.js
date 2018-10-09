@@ -6,6 +6,14 @@
     ]);
 
     function AuthFactory($http, consts) {
+        let user = null;
+
+        function getUser() {
+            if (!user) {
+                user = JSON.parse(localStorage.getItem(consts.userKey));
+            }
+            return user;
+        }
 
         function signup(user, callback) {
             submit('signup', user, callback);
@@ -26,6 +34,12 @@
             })
         }
 
-        return {signup, login};
+        function logout(callback) {
+            localStorage.removeItem(consts.userKey);
+            $http.defaults.headers.common.Authorization = '';
+            if (callback) callback(null)
+        }
+
+        return {signup, login, logout, getUser};
     }
 })();
