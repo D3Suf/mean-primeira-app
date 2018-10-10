@@ -28,7 +28,7 @@ module.exports = function(server) {
   billingCycleService.register(protectedApi, "/billingCycles");
 
   const billingSummaryService = require("../api/billingSummaryService");
-  protectedApi.route("billingSummary").get(billingSummaryService.getSummary);
+  protectedApi.route("/billingSummary").get(billingSummaryService.getSummary);
 
   /** [ANTES DA AUTENTICAÇÃO]
   // API Routes
