@@ -18,7 +18,7 @@
         };
         vm.getUser = () => auth.getUser();
         vm.logout = () => {
-            auth.logout(() => msgs.addSuccess("Sucesso"));
+            auth.logout(() => $location.path('/'));
         }
     }
 })();

@@ -35,11 +35,28 @@
         }
 
         function logout(callback) {
+            user = null;
             localStorage.removeItem(consts.userKey);
             $http.defaults.headers.common.Authorization = '';
             if (callback) callback(null)
         }
 
-        return {signup, login, logout, getUser};
+        function validateToken(token, callback) {
+            if (token) {
+                $http.post(`${consts.oapiUrl}/validateToken`, {token})
+                    .then(resp => {
+                        if (!resp.data.valid) {
+                            logout();
+                        } else {
+                            $http.defaults.headers.common.Authorization = getUser().token;
+                        }
+                        if (callback) callback(null, resp.data.valid);
+                    }).catch(function () {
+                    if (callback) callback('Token inválido.');
+                })
+            }
+        }
+
+        return {signup, login, logout, getUser, validateToken};
     }
 })();
